@@ -56,13 +56,13 @@ def load_images_from_folder(folder, target_size=(64, 64)):
             images_name.append('Cat' if "cat" in filename else 'Other')
     return np.array(images).T, np.array(labels), images_name  # shape: (n_x, m), (1, m) , (1, m)
 
-X_train, Y_train, _ = load_images_from_folder(r"C:\Users\mojij\OneDrive\Desktop\train_images")
+X_train, Y_train, _ = load_images_from_folder(r".\train_images")
 print(X_train.shape, Y_train.shape)
-print(X_train.shape, Y_train)
-
-X_test, true_label, true_names = load_images_from_folder(r"C:\Users\mojij\OneDrive\Desktop\test_images")
+print('--------------------------------------------')
+X_test, true_label, true_names = load_images_from_folder(r".\test_images")
 layers_dims = [X_train.shape[0], 50, 30, 10, 1]  # Example: input layer size matches n_x
-print(layers_dims)
+print('layers_dims: ',layers_dims)
+print('--------------------------------------------')
 model2 = class_deepLearning.deepLearner()
 model2.fit(X_train, Y_train.reshape(1, -1),
            layers_dims,
@@ -72,7 +72,7 @@ model2.fit(X_train, Y_train.reshape(1, -1),
            print_cost=True)
 predictions = model2.predict(X_test, output_activation=True)
 print('predictions: ',predictions)
-print('true_y: ',true_label)
+print('true_label: ',true_label)
 print('true_names: ',true_names)
 
 list_predictions = predictions[0]
