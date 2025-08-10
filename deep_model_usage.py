@@ -91,4 +91,12 @@ print(f"Out of all predictions: Precision: {Precision} → Of the positives pred
 print(f"Out of all predictions: Recall: {Recall} → The model caught {Recall * 100}% actual positives.")
 print(f"Out of all predictions: F1-score: {F1_score} →  is my balance between precision and recall")
 
+import matplotlib
+matplotlib.use('TkAgg') 
+import matplotlib.pyplot as plt
 
+plt.plot(model2.costs)
+plt.xlabel('Iterations (x100)')
+plt.ylabel('Cost')
+plt.title('Training Cost over Iterations')
+plt.show()
