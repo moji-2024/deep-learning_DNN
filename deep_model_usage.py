@@ -95,8 +95,22 @@ import matplotlib
 matplotlib.use('TkAgg') 
 import matplotlib.pyplot as plt
 
+plt.figure(figsize=(10, 6))
 plt.plot(model2.costs)
-plt.xlabel('Iterations (x100)')
-plt.ylabel('Cost')
-plt.title('Training Cost over Iterations')
+plt.xlabel('Iterations (x100)',fontsize=14, fontweight='bold')
+plt.ylabel('Cost',fontsize=14, fontweight='bold')
+plt.title('Training Cost over Iterations',fontsize=16, fontweight='bold')
+plt.savefig('Training_Cost_over_Iterations.png',bbox_inches='tight')
+plt.show()
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.metrics import confusion_matrix
+matrix = confusion_matrix(true_label, predictions[0])
+plt.figure(figsize=(10, 6))
+sns.heatmap(matrix, annot=True, fmt='d', cmap='Blues')
+plt.title('Confusion Matrix', fontsize=16, fontweight='bold')  # Add title here
+plt.xlabel('Predicted',fontsize=14, fontweight='bold')
+plt.ylabel('True',fontsize=14, fontweight='bold')
+plt.savefig('Confusion_Matrix.png',bbox_inches='tight')
 plt.show()
