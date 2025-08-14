@@ -3,6 +3,12 @@ import pandas as pd
 from PIL import Image
 import numpy as np
 import os
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.metrics import confusion_matrix
+import matplotlib
+matplotlib.use('TkAgg') 
+import matplotlib.pyplot as plt
 
 model = class_deepLearning.deepLearner()
 # # # sample.initialize_parameters_deep([2,4,5,1])
@@ -91,10 +97,10 @@ print(f"Out of all predictions: Precision: {Precision} → Of the positives pred
 print(f"Out of all predictions: Recall: {Recall} → The model caught {Recall * 100}% actual positives.")
 print(f"Out of all predictions: F1-score: {F1_score} →  is my balance between precision and recall")
 
-import matplotlib
-matplotlib.use('TkAgg') 
-import matplotlib.pyplot as plt
-os.mkdir('Result_images')
+#create directory of image results
+os.makedirs('Result_images', exist_ok=True)
+
+#porterate cost value over itrations
 plt.figure(figsize=(10, 6))
 plt.plot(model2.costs)
 plt.xlabel('Iterations (x100)',fontsize=14, fontweight='bold')
@@ -103,10 +109,10 @@ plt.title('Training Cost over Iterations',fontsize=16, fontweight='bold')
 plt.savefig('Result_images/Training_Cost_over_Iterations.png',bbox_inches='tight')
 plt.show()
 
-import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.metrics import confusion_matrix
+#create matrix of predictions over true labels
 matrix = confusion_matrix(true_label, predictions[0])
+
+#porterate Confusion Matrix
 plt.figure(figsize=(10, 6))
 sns.heatmap(matrix, annot=True, fmt='d', cmap='Blues')
 plt.title('Confusion Matrix', fontsize=16, fontweight='bold')  # Add title here
