@@ -11,6 +11,9 @@ The model supports forward and backward propagation, cost monitoring, and evalua
 - **Flexible Architecture** — Easily adjust number of layers and neurons.
 
 ## Requirements
+See [requirements.txt](requirements.txt) for dependencies.
+
+
 - Python 3.8+
 - pandas
 - numpy
