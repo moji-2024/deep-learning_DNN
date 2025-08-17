@@ -12,13 +12,13 @@ The model supports forward and backward propagation, cost monitoring, and evalua
 
 ## Requirements
 See [requirements.txt](requirements.txt) for dependencies.
-
-
 - Python 3.8+
 - pandas
 - numpy
 - matplotlib
 - pillow (PIL)
+- seaborn
+- scikit-learn
 
 Install dependencies:
 ```bash
